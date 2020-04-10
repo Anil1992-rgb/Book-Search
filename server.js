@@ -31,9 +31,9 @@ mongoose.connect(
   { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 
-app.get('/', (req, res) => {
-    res.send("hello")
-})
+app.get("*", function(req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 // Start the API server
 app.listen(PORT, () =>
