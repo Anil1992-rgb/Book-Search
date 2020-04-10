@@ -17,19 +17,19 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-// mongoose.connect(
-//   process.env.MONGODB_URI || "mongodb://localhost/googlebooks",
-//   {
-//     useCreateIndex: true,
-//     useNewUrlParser: true
-//   }
-// );
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/googlebooks",
+  {
+    useCreateIndex: true,
+    useNewUrlParser: true
+  }
+);
 
 //Heroku
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://"+ process.env.MONGO_USER +":"+ process.env.MONGO_PASS + "@ds127300.mlab.com:27300/heroku_chzs10z1",
-  { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
-);
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://"+ process.env.MONGO_USER +":"+ process.env.MONGO_PASS + "@ds127300.mlab.com:27300/heroku_chzs10z1",
+//   { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
+// );
 
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
