@@ -41,7 +41,7 @@ Start up your MongoDB.
 In the project directory, you can run: 
 <br/>
 
-### 'npm install'
+### `npm install`
 
 <br/>
 and then:
