@@ -1,6 +1,6 @@
 ## Google Book Search (React App)
 
----
+
 ![Example profile](./example01.png)
 <br/>
 <br/>
