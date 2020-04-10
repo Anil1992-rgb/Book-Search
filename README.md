@@ -1,12 +1,12 @@
 ## Google Book Search (React App)
 
 ---
-![Example profile](./example1.png)
+![Example profile](./example01.png)
 <br/>
 <br/>
 ---
 
-![Example profile](./example2.png)
+![Example profile](./example02.png)
 <br/>
 
 * As a user, I want to be able to search and save books that i am interested in.
