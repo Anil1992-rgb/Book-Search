@@ -3,8 +3,6 @@ import Book from "../components/Book";
 import API from "../utils/API";
 import Form from "../components/Form";
 
-
-
 function Home() {
 
     const [books, setBooks] = useState([]);
@@ -34,8 +32,6 @@ function Home() {
             );
     };
 
-
-
     const handleBookSave = id => {
         const book = books.find(book => book.id === id);
 
@@ -43,13 +39,13 @@ function Home() {
             googleId: book.id,
             title: book.volumeInfo.title,
             subtitle: book.volumeInfo.subtitle,
+            image: book.volumeInfo.imageLinks.thumbnail,
             link: book.volumeInfo.infoLink,
             authors: book.volumeInfo.authors,
-            description: book.volumeInfo.description,
-            image: book.volumeInfo.imageLinks.thumbnail
+            description: book.volumeInfo.description
+            
         }).then(() => getBooks());
     }
-
 
     return (
         <div className="container">
@@ -63,17 +59,15 @@ function Home() {
                     </div>
                 </div>
                 <div className="col-md-12">
-                    <div className="card" title="Book Search">
                         <Form handleInputChange={handleInputChange}
                             handleFormSubmit={handleFormSubmit}
                             query={query} />
-
-                    </div>
                 </div>
             </div>
+            <br/>
             <div className="row">
                 <div className="col-md-12">
-                    <div className="card" title="Results">
+                    <div className="card" title="Results" style={{padding: 20, border: "none"}}>
                         {books.map(book => {
 
                             return <Book
@@ -81,15 +75,20 @@ function Home() {
                                 id={book.id}
                                 title={book.volumeInfo.title}
                                 subtitle={book.volumeInfo.subtitle}
+                                image={book.volumeInfo.imageLinks.thumbnail} handleBookSave={handleBookSave}
                                 link={book.volumeInfo.infoLink}
                                 authors={book.volumeInfo.authors.join(", ")}
                                 description={book.volumeInfo.description}
-                                image={book.volumeInfo.imageLinks.thumbnail} handleBookSave={handleBookSave} />
+                                 />
                         })}
 
                     </div>
+                    
                 </div>
+                <br/>
             </div>
+            
+
         </div>
 
     )

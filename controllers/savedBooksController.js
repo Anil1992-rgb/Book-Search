@@ -7,6 +7,7 @@ module.exports = {
             .then(dbBook => res.json(dbBook))
             .catch(err => res.status(422).json(err));
     },
+    
     remove: function (req, res) {
         console.log(req.params)
         console.log(req.query)

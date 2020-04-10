@@ -29,12 +29,9 @@ module.exports = {
       .then(books => res.json(books))
       .catch(err => res.status(422).json(err));
   },
-
+  
   save: function(req, res) {
     const newBook = req.body
     db.Book.create(newBook).then(dbBooks => res.json(dbBooks))
   }
-
-
-
 };
